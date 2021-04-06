@@ -6,6 +6,11 @@
             <router-link to="/edit">Edit</router-link>
         </div>
     <router-view/>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted"><a href="https://github.com/logankimbs/cp4" target="blank">GitHub</a></span>
+        </div>
+    </footer>
     </div>
 </template>
 
