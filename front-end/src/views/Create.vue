@@ -88,7 +88,7 @@
                     await axios.post('/api/authors', {  name: this.newAuthor  });
                     this.getAuthors();
                     this.newAuthor = '';
-                } catch (error) {  console.log(error);  }
+                } catch (error) {  /* console.log(error); */  }
             },
 
             useExisting() {
@@ -101,7 +101,7 @@
                 try {
                     let response = await axios.get('/api/authors');
                     this.authors = response.data;
-                } catch (error) {  console.log(error);  }
+                } catch (error) {  /* console.log(error); */  }
             },
 
             setCurrentAuthor(author) {
@@ -128,7 +128,7 @@
                     this.path = null;
                     this.content = '';
                     this.tag = '';
-                } catch (error) {  console.log(error);  }
+                } catch (error) {  /* console.log(error); */  }
             }
         }
     }

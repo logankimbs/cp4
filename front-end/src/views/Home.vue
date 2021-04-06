@@ -49,7 +49,7 @@
                 try {
                     let response = await axios.get('/api/authors');
                     this.authors = response.data;
-                } catch (error) {  console.log(error);  }
+                } catch (error) {  /* console.log(error); */  }
             },
 
             setCurrentAuthor(author) {
@@ -62,8 +62,8 @@
                 try {
                     let response = await axios.get(`/api/authors/${author._id}/articles`);
                     this.articles = response.data;
-                } catch (error) {  console.log(error);  }
-            },
+                } catch (error) {  /* console.log(error); */  }
+            }
         }
     }
 </script>
