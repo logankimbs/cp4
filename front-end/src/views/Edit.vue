@@ -12,7 +12,7 @@
                     <p>Select the article to edit.</p>
                     <button class="btn btn-outline-success btn-sm me-1" @click="setCurrentArticle(article)" v-for="article in articles" :key="article.id">{{article.title}}</button>
                 </div>
-                <div v-if="currentArticle">
+                <div class="mb-3" v-if="currentArticle">
                     <div class="mb-3">
                         <label for="authorsName" class="form-label">Authors Name:</label>
                         <input type="text" class="form-control" :value="this.currentAuthor.name" disabled>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div v-else>
-                <p>{{currentAuthor.name}} has not written an article yet.</p>
+                <p class="text-danger"><b>{{this.currentAuthor.name}}</b> has not written an article yet.</p>
             </div>
         </div>
     </div>
@@ -51,6 +51,7 @@
                 currentAuthor: null,
                 currentArticle: null,
                 articles: []
+
             }
         },
 

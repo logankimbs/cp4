@@ -1,12 +1,10 @@
 <template>
     <div class="container">
-        <div class="mb-3">
             <h1>Home</h1>
             <p>Choose your favorite author to view their work.</p>
             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-outline-primary" v-for="author in authors" :key="author.id" @click="setCurrentAuthor(author)">{{author.name}}</button>
             </div>
-        </div>
 
         <div v-if="currentAuthor">
             <div v-if="this.articles.length != 0">
@@ -22,7 +20,7 @@
                 </div>
             </div>
             <div v-else>
-                <p>{{this.currentAuthor.name}} has not written an article yet.</p>
+                <p class="text-danger"><b>{{this.currentAuthor.name}}</b> has not written an article yet.</p>
             </div>
         </div>
     </div>
@@ -56,6 +54,7 @@
 
             setCurrentAuthor(author) {
                 this.currentAuthor = author;
+                this.wasPushed = 'active';
                 this.getCurrentArticles(author);
             },
 
@@ -64,7 +63,7 @@
                     let response = await axios.get(`/api/authors/${author._id}/articles`);
                     this.articles = response.data;
                 } catch (error) {  console.log(error);  }
-            }
+            },
         }
     }
 </script>
@@ -76,5 +75,9 @@
 
 img {
     margin-bottom: 36px;
+}
+
+button.selected {
+  border-bottom: 2px solid #000;
 }
 </style>

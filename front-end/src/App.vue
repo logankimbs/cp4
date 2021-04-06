@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div id="nav">
+        <div id="nav" class="container">
             <router-link to="/">Home</router-link> |
             <router-link to="/create">Create</router-link> |
             <router-link to="/edit">Edit</router-link>
@@ -22,7 +22,7 @@
 }
 
 #nav {
-    padding: 30px;
+    padding: 30px 12px;
 }
 
 #nav a {

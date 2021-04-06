@@ -7,7 +7,7 @@
             <button class="btn btn-primary" @click="useExisting">Use Existing</button>
         </div>
 
-        <div v-if="createNewAlley">
+        <div class="mb-3" v-if="createNewAlley">
             <div class="mb-3">
                 <label for="authorsName" class="form-label">Authors Name:</label>
                 <input type="text" class="form-control" v-model="newAuthor">
@@ -16,11 +16,10 @@
         </div>
 
         <div v-else-if="useExistingAlley">
-            <div class="btn-group btn-group-sm mb-3" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-primary" v-for="author in authors" :key="author.id" @click="setCurrentAuthor(author)">{{author.name}}</button>
-            </div>
+            <p>Which author would you like to create an article for?</p>
+            <button class="btn btn-outline-success btn-sm me-1 mb-3" v-for="author in authors" :key="author.id" @click="setCurrentAuthor(author)">{{author.name}}</button>
 
-            <div v-if="currentAuthor">
+            <div class="mb-3" v-if="currentAuthor">
                 <div class="mb-3">
                     <label for="authorsName" class="form-label">Authors Name:</label>
                     <input type="text" class="form-control" :value="this.currentAuthor.name" disabled>
